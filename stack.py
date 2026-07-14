@@ -22,8 +22,8 @@ class Stack:
         return len(self.stack)
     
 
-
-def balanced_str(s: str):
+def balanced_str():
+    s = input()
     new_stack = Stack()
     pairs = {
         '(':')',
@@ -35,23 +35,19 @@ def balanced_str(s: str):
             new_stack.push(el)
         else: 
             if new_stack.is_empty() or pairs[new_stack.pop()] != el:
-                return 'Несбалансированно'
+                print('Несбалансированно')
+                return 
         # print(tuple(new_stack.stack))
             
             
     if new_stack.is_empty():
-        return 'Сбалансированно'
-    return 'Несбалансированно'
-        
+        print('Сбалансированно')
+        return 
+    else:
+        print('Несбалансированно')
+        return 
 
-# tests
-if __name__ ==' __main__':
-    assert balanced_str(['[',']', '{','}','{','}']) == 'Сбалансированно'
-    assert balanced_str([]) == 'Сбалансированно'
-    assert balanced_str(['{','{','[','(',')',']','}','}']) =='Сбалансированно'
-    assert balanced_str(['[', '{','}','{','}']) == 'Несбалансированно'
-    assert balanced_str(['[','/', '{','}','{','}']) == 'Несбалансированно'
-
+balanced_str()
 
 
 
